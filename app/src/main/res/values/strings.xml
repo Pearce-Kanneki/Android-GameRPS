@@ -16,4 +16,5 @@
     <string name="gameLoss">你輸了</string>
     <string name="gameTid">平手</string>
     <string name="game_win_loss">%1$s 勝 %2$s 敗</string>
+    <string name="roomNumber">房號: %s</string>
 </resources>
