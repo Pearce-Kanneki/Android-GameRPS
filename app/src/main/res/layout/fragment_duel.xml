@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.kanneki.gamerps.ui.duel.DuelViewModel" />
+        <variable
+            name="game"
+            type="com.kanneki.gamerps.utils.GameSet" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/backImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="@{() -> vm.setBack(true)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/gameView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{vm.roomKey}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:game_imager="@{vm.selectItem}"
+            app:layout_constraintEnd_toStartOf="@+id/vsImage"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userName"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/rivalmage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/vsImage"
+            app:layout_constraintTop_toTopOf="@+id/userImage"
+            app:game_imager="@{vm.otherSelectItem}"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/vsImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userImage"
+            app:layout_constraintEnd_toStartOf="@+id/rivalmage"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/userImage"
+            app:layout_constraintTop_toTopOf="@+id/userImage"
+            app:srcCompat="@drawable/vs_image"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/mySelect"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/userImage"
+            app:layout_constraintStart_toStartOf="@+id/userImage"
+            app:layout_constraintTop_toBottomOf="@+id/backImage" />
+
+        <TextView
+            android:id="@+id/rivalName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/otherSide"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/rivalmage"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/rivalmage"
+            app:layout_constraintTop_toTopOf="@+id/userName" />
+
+        <TextView
+            android:id="@+id/contentTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@{vm.contextMessage}"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/rivalmage"
+            app:layout_constraintStart_toStartOf="@+id/userImage"
+            app:layout_constraintTop_toBottomOf="@+id/userImage" />
+
+        <ImageButton
+            android:id="@+id/scissoreButton"
+            android:layout_width="@dimen/game_button"
+            android:layout_height="@dimen/game_button"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/game_button_backgroud"
+            android:scaleType="centerInside"
+            android:onClick="@{()-> vm.setSelectItem(game.SCISSORE)}"
+            app:setShow="@{vm.selectItem}"
+            app:layout_constraintEnd_toStartOf="@+id/rockButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentTextView"
+            app:srcCompat="@drawable/scissors"
+            tools:ignore="ContentDescription" />
+
+        <Button
+            android:id="@+id/nextGameButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/game_button_backgroud"
+            android:text="@string/nextGame"
+            android:textSize="24sp"
+            android:onClick="@{() -> vm.nextGame()}"
+            app:layout_constraintEnd_toEndOf="@+id/paperButton"
+            app:layout_constraintStart_toStartOf="@+id/scissoreButton"
+            app:layout_constraintTop_toBottomOf="@+id/rockButton"
+            app:setBooleanShow="@{vm.nextGameButtonShow}" />
+
+        <ImageButton
+            android:id="@+id/rockButton"
+            android:layout_width="@dimen/game_button"
+            android:layout_height="@dimen/game_button"
+            android:background="@drawable/game_button_backgroud"
+            android:scaleType="centerInside"
+            android:onClick="@{()-> vm.setSelectItem(game.ROCK)}"
+            app:setShow="@{vm.selectItem}"
+            app:layout_constraintEnd_toStartOf="@+id/paperButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/scissoreButton"
+            app:layout_constraintTop_toTopOf="@+id/scissoreButton"
+            app:srcCompat="@drawable/rock"
+            tools:ignore="ContentDescription" />
+
+        <ImageButton
+            android:id="@+id/paperButton"
+            android:layout_width="@dimen/game_button"
+            android:layout_height="@dimen/game_button"
+            android:background="@drawable/game_button_backgroud"
+            android:scaleType="centerInside"
+            android:onClick="@{()-> vm.setSelectItem(game.PAPER)}"
+            app:setShow="@{vm.selectItem}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/rockButton"
+            app:layout_constraintTop_toTopOf="@+id/rockButton"
+            app:srcCompat="@drawable/paper"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/codeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@{vm.gameWinLoss}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

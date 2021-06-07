@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GameRPS</string>
+    <string name="add_room_button">新增決鬥房</string>
+    <string name="in_room_button">加入對戰房</string>
+    <string name="changeName">修改名稱</string>
+    <string name="mySelect">我方選擇</string>
+    <string name="otherSide">對方選擇</string>
+    <string name="gameName">猜拳遊戲</string>
+    <string name="roomPassword">請輸入房號</string>
+    <string name="wait">Wait...</string>
+    <string name="nextGame">下一場</string>
+    <!-- Game -->
+    <string name="gameWaitGame">等待對方加入</string>
+    <string name="gamePleseItem">請選擇...</string>
+    <string name="gameWin">你贏了</string>
+    <string name="gameLoss">你輸了</string>
+    <string name="gameTid">平手</string>
+    <string name="game_win_loss">%1$s 勝 %2$s 敗</string>
+</resources>

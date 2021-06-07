@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "432625414995",
+    "project_id": "erps-d3144",
+    "storage_bucket": "erps-d3144.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432625414995:android:8ae8b9974f1958a04527a6",
+        "android_client_info": {
+          "package_name": "com.kanneki.gamerps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432625414995-7knk07de5u7vp8sushro21j6d8vkr7rk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFl8gbxuqDjKPjmZbwNoLmL9XhlWxdTtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432625414995-7knk07de5u7vp8sushro21j6d8vkr7rk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
